@@ -44,7 +44,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 <div class="col-md-12">
                     <div class="page-header clearfix">
                         <h1>Bonjour, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Bienvenue!</h1>
-                        <h2 class="pull-left">Voir les employés</h2>
+                        <h2 class="pull-left">Voici les employés</h2>
                         <a href="create.php" class="btn btn-success pull-right">Ajouter un employé</a>
                     </div>
                     <p>
@@ -88,13 +88,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             mysqli_free_result($result);
                         } else{
-                            echo "<p class='lead'><em>No records were found.</em></p>";
+                            echo "<p class='lead'><em>Aucun employé trouvé.</em></p>";
                         }
                     } else{
                         echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
                     }
 
-                    
+
                     mysqli_close($link);
                     ?>
                 </div>

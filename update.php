@@ -1,25 +1,25 @@
 <?php
-// Include config file
+
 require_once "config.php";
 
 session_start();
 
-// Check if the user is logged in, if not then redirect him to login page
+
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
 
-// Define variables and initialize with empty values
+
 $name = $address = $salary = "";
 $name_err = $address_err = $salary_err = "";
 
-// Processing form data when form is submitted
+
 if(isset($_POST["id"]) && !empty($_POST["id"])){
-    // Get hidden input value
+
     $id = $_POST["id"];
 
-    // Validate name
+
     $input_name = trim($_POST["name"]);
     if(empty($input_name)){
         $name_err = "S'il vous plaît, entrez un nom.";
@@ -29,7 +29,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         $name = $input_name;
     }
 
-    // Validate address address
+
     $input_address = trim($_POST["address"]);
     if(empty($input_address)){
         $address_err = "S'il vous plaît, entrez une adresse.";
@@ -37,7 +37,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         $address = $input_address;
     }
 
-    // Validate salary
+
     $input_salary = trim($_POST["salary"]);
     if(empty($input_salary)){
         $salary_err = "S'il vous plaît, entrez un montant de salaire.";
@@ -47,24 +47,24 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         $salary = $input_salary;
     }
 
-    // Check input errors before inserting in database
+
     if(empty($name_err) && empty($address_err) && empty($salary_err)){
-        // Prepare an update statement
+
         $sql = "UPDATE employees SET name=?, address=?, salary=? WHERE id=?";
 
         if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
+
             mysqli_stmt_bind_param($stmt, "sssi", $param_name, $param_address, $param_salary, $param_id);
 
-            // Set parameters
+
             $param_name = $name;
             $param_address = $address;
             $param_salary = $salary;
             $param_id = $id;
 
-            // Attempt to execute the prepared statement
+
             if(mysqli_stmt_execute($stmt)){
-                // Records updated successfully. Redirect to landing page
+                
                 header("location: index.php");
                 exit();
             } else{
