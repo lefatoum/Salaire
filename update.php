@@ -22,9 +22,9 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Validate name
     $input_name = trim($_POST["name"]);
     if(empty($input_name)){
-        $name_err = "Please enter a name.";
+        $name_err = "S'il vous plaît, entrez un nom.";
     } elseif(!filter_var($input_name, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $name_err = "Please enter a valid name.";
+        $name_err = "S'il vous plaît, entrez un nom valide";
     } else{
         $name = $input_name;
     }
@@ -32,7 +32,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Validate address address
     $input_address = trim($_POST["address"]);
     if(empty($input_address)){
-        $address_err = "Please enter an address.";
+        $address_err = "S'il vous plaît, entrez une adresse.";
     } else{
         $address = $input_address;
     }
@@ -40,9 +40,9 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Validate salary
     $input_salary = trim($_POST["salary"]);
     if(empty($input_salary)){
-        $salary_err = "Please enter the salary amount.";
+        $salary_err = "S'il vous plaît, entrez un montant de salaire.";
     } elseif(!ctype_digit($input_salary)){
-        $salary_err = "Please enter a positive integer value.";
+        $salary_err = "S'il vous plaît, entrez une valeur positive.";
     } else{
         $salary = $input_salary;
     }
@@ -68,7 +68,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                 header("location: index.php");
                 exit();
             } else{
-                echo "Something went wrong. Please try again later.";
+                echo "Erreur ! Essayez plus tard";
             }
         }
 
@@ -113,7 +113,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                 }
 
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Erreur! Essayez plus tard";
             }
         }
 
@@ -134,7 +134,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Update Record</title>
+    <title>Mise à jour</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         .wrapper{
@@ -149,28 +149,28 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <h2>Update Record</h2>
+                        <h2>Mise à jour</h2>
                     </div>
-                    <p>Please edit the input values and submit to update the record.</p>
+                    <p>Editez le formulaire et validez ensuite.</p>
                     <form action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post">
                         <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
-                            <label>Name</label>
+                            <label>Nom</label>
                             <input type="text" name="name" class="form-control" value="<?php echo $name; ?>">
                             <span class="help-block"><?php echo $name_err;?></span>
                         </div>
                         <div class="form-group <?php echo (!empty($address_err)) ? 'has-error' : ''; ?>">
-                            <label>Address</label>
+                            <label>Adresse</label>
                             <textarea name="address" class="form-control"><?php echo $address; ?></textarea>
                             <span class="help-block"><?php echo $address_err;?></span>
                         </div>
                         <div class="form-group <?php echo (!empty($salary_err)) ? 'has-error' : ''; ?>">
-                            <label>Salary</label>
+                            <label>Salaire</label>
                             <input type="text" name="salary" class="form-control" value="<?php echo $salary; ?>">
                             <span class="help-block"><?php echo $salary_err;?></span>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                         <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="index.php" class="btn btn-default">Cancel</a>
+                        <a href="index.php" class="btn btn-default">Annuler</a>
                     </form>
                 </div>
             </div>
