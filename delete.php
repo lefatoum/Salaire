@@ -41,7 +41,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
 } else{
 
     if(empty(trim($_GET["id"]))){
-        
+
         header("location: error.php");
         exit();
     }
@@ -73,7 +73,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>"/>
                             <p>Etes vous sûr de vouloir effacer ?</p><br>
                             <p>
-                                <input type="submit" value="Yes" class="btn btn-danger">
+                                <input type="submit" value="Oui" class="btn btn-danger">
                                 <a href="index.php" class="btn btn-default">Non</a>
                             </p>
                         </div>

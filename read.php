@@ -53,7 +53,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
 
     mysqli_close($link);
 } else{
-    
+
     header("location: error.php");
     exit();
 }
@@ -77,7 +77,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <h1>Salariés</h1>
+                        <h1>Salarié</h1>
                     </div>
                     <div class="form-group">
                         <label>Nom</label>
