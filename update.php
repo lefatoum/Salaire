@@ -64,7 +64,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
 
 
             if(mysqli_stmt_execute($stmt)){
-                
+
                 header("location: index.php");
                 exit();
             } else{
@@ -169,7 +169,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <span class="help-block"><?php echo $salary_err;?></span>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-                        <input type="submit" class="btn btn-primary" value="Submit">
+                        <input type="submit" class="btn btn-primary" value="Valider">
                         <a href="index.php" class="btn btn-default">Annuler</a>
                     </form>
                 </div>
