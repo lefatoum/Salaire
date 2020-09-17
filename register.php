@@ -125,7 +125,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="submit" class="btn btn-primary" value="Valider">
                 <input type="reset" class="btn btn-default" value="Reset">
             </div>
             <p>Avez vous déjà un compte? <a href="login.php">Se connecter</a>.</p>

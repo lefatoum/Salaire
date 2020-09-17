@@ -65,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
-    
+
     mysqli_close($link);
 }
 ?>
@@ -97,7 +97,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="submit" class="btn btn-primary" value="Valider">
                 <a class="btn btn-link" href="index.php">Annuler</a>
             </div>
         </form>

@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $address = $input_address;
     }
 
-  
+
     $input_salary = trim($_POST["salary"]);
     if(empty($input_salary)){
         $salary_err = "S'il vous plaît, entrez le montant du salaire.";
@@ -115,7 +115,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <input type="text" name="salary" class="form-control" value="<?php echo $salary; ?>">
                             <span class="help-block"><?php echo $salary_err;?></span>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Submit">
+                        <input type="submit" class="btn btn-primary" value="Valider">
                         <a href="index.php" class="btn btn-default">Annuler</a>
                     </form>
                 </div>
