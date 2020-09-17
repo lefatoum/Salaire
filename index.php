@@ -1,9 +1,9 @@
 
 <?php
-// Initialize the session
+
 session_start();
 
-// Check if the user is logged in, if not then redirect him to login page
+
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
@@ -52,10 +52,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                         <a href="logout.php" class="btn btn-danger">Déconnecter</a>
                     </p>
                     <?php
-                    // Include config file
+
                     require_once "config.php";
 
-                    // Attempt select query execution
+
                     $sql = "SELECT * FROM employees";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
@@ -85,7 +85,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                 }
                                 echo "</tbody>";
                             echo "</table>";
-                            // Free result set
+
                             mysqli_free_result($result);
                         } else{
                             echo "<p class='lead'><em>No records were found.</em></p>";
@@ -94,7 +94,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                         echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
                     }
 
-                    // Close connection
+                    
                     mysqli_close($link);
                     ?>
                 </div>
